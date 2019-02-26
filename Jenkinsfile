@@ -7,6 +7,9 @@ pipeline {
         stage('Images') {
             parallel {
                 stage('Building Image 1') {
+                    when{
+                        branch 'master'
+                    }
                     agent {
                         kubernetes {
                             label 'pl_declarative_full_example_build_image_1'
