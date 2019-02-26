@@ -2,17 +2,7 @@ pipeline {
     options {
       newContainerPerStage()
     }
-     agent {
-                        kubernetes {
-                            label 'pl_declarative_full_example_build_image_default'
-                            containerTemplate {
-                                name 'maven'
-                                image 'maven:3.3.9-jdk-8-alpine'
-                                ttyEnabled true
-                                command 'cat'
-                            }
-                        }
-                    }
+    agent any
     stages {
         stage('Images') {
             parallel {
